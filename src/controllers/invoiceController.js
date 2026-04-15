@@ -211,3 +211,19 @@ exports.getInvoicePayments = async (req, res) => {
     res.status(400).json({ success: false, message: err.message });
   }
 };
+
+
+const getInvoiceByStatus = async (req,res)=>{
+ 
+    const {status , minAmount , maxAmount} = req.query
+
+    const userId = req.user.id
+    if(!status  || !minAmount || !maxAmount) throw new Error("missing information in the query")
+
+
+    const minInvoices = await Invoice.find({"status" : status ,"totalPaid": totalpaid>minAmount , user : userId })
+    const maxInvoices = await Invoice.find({"status" : status ,"totalPaid": totalpaidmax<maxAmount , user : userId })
+ 
+       return {minInvoices , maxInvoices}
+   
+}
