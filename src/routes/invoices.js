@@ -16,6 +16,7 @@ router.use(protect);
 
 router.route('/')
   .get(getInvoices)
+  .get(getIvoicesByStatus)
   .post(createInvoice);
 
 router.route('/:id')

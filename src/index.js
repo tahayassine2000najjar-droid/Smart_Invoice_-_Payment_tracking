@@ -25,7 +25,6 @@ app.use('/api/suppliers', suppliers);
  app.use('/api/dashboard', dashboard);
  app.use('/api/admin', admin);
 
-
 app.get('/', (req, res) => {
   res.json({ message: 'Welcome to the Invoice Management API' });
 });
